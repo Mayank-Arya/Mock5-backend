@@ -3,7 +3,7 @@ const { empModel } = require('../models/employee.model');
 const empRouter = express.Router();
 
 
-empRouter.post('/employees', async (req, res) => {
+empRouter.post('/addEmp', async (req, res) => {
   try {
     const {FirstName,LastName,Email,Department, Salary } = req.body;
     const newEmployee = new empModel({
@@ -22,7 +22,7 @@ empRouter.post('/employees', async (req, res) => {
 });
 
 
-empRouter.get('/employees', async (req, res) => {
+empRouter.get('/', async (req, res) => {
   try {
     const employees = await empModel.find();
 
